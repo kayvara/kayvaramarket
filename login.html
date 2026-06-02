@@ -6,7 +6,6 @@
 <title>Login - KAYVARA VEAT</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -19,13 +18,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:
-    linear-gradient(
-    135deg,
-    #0f172a,
-    #1e3a8a,
-    #2563eb
-    );
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
     padding:20px;
 }
 
@@ -38,8 +31,7 @@ body{
     background:white;
     border-radius:25px;
     padding:40px;
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.25);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
 .logo{
@@ -73,26 +65,6 @@ body{
     border:1px solid #dbe2ea;
     border-radius:12px;
     font-size:15px;
-    transition:.3s;
-}
-
-.input-group input:focus{
-    outline:none;
-    border-color:#2563eb;
-    box-shadow:0 0 0 4px rgba(37,99,235,.1);
-}
-
-.options{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.options a{
-    text-decoration:none;
-    color:#2563eb;
-    font-size:14px;
 }
 
 .login-btn{
@@ -105,22 +77,15 @@ body{
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
-    transition:.3s;
 }
 
 .login-btn:hover{
     background:#1d4ed8;
-    transform:translateY(-2px);
-}
-
-.divider{
-    text-align:center;
-    margin:25px 0;
-    color:#94a3b8;
 }
 
 .register-link{
     text-align:center;
+    margin-top:20px;
     color:#64748b;
 }
 
@@ -129,149 +94,44 @@ body{
     text-decoration:none;
     font-weight:bold;
 }
-
-.security-box{
-    margin-top:20px;
-    background:#eff6ff;
-    border-radius:12px;
-    padding:12px;
-    text-align:center;
-    font-size:13px;
-    color:#1e40af;
-}
-
 </style>
 </head>
+
 <body>
 
 <div class="login-container">
-
 <div class="login-card">
 
-<div class="logo">
-🛒 KAYVARA VEAT
-</div>
-
-<p class="subtitle">
-Masuk ke akun marketplace Anda
-</p>
+<div class="logo">🛒 KAYVARA VEAT</div>
+<p class="subtitle">Masuk ke akun marketplace Anda</p>
 
 <form id="loginForm">
 
 <div class="input-group">
-<label>Email atau Username</label>
-<input
-type="text"
-id="username"
-placeholder="Masukkan Email atau Username"
-required>
+<label>Email</label>
+<input type="email" id="email" required>
 </div>
 
 <div class="input-group">
-<label>Kata Sandi</label>
-<input
-type="password"
-id="password"
-placeholder="Masukkan Kata Sandi"
-required>
+<label>Password</label>
+<input type="password" id="password" required>
 </div>
 
-<div class="options">
-
-<label>
-<input type="checkbox">
- Ingat Saya
-</label>
-
-<a href="forgot-password.html">
-Lupa Kata Sandi?
-</a>
-
-</div>
-
-<button
-type="submit"
-class="login-btn">
+<button type="submit" class="login-btn">
 LOGIN
 </button>
 
 </form>
 
-<div class="divider">
-──────── atau ────────
-</div>
-
 <div class="register-link">
 Belum punya akun?
-<a href="register.html">
-Daftar Sekarang
-</a>
-</div>
-
-<div class="security-box">
-🔒 Sistem keamanan berlapis dan verifikasi akun aktif.
+<a href="register.html">Daftar Sekarang</a>
 </div>
 
 </div>
-
 </div>
 
-<script>
-
-document
-.getElementById("loginForm")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-const username =
-document.getElementById("username").value;
-
-const password =
-document.getElementById("password").value;
-
-if(username === ""){
-    alert("Masukkan username atau email");
-    return;
-}
-
-if(password === ""){
-    alert("Masukkan kata sandi");
-    return;
-}
-
-/*
-Nanti bagian ini diganti Firebase Login
-*/
-
-const savedUser =
-JSON.parse(
-localStorage.getItem(
-"marketplaceUser"
-)
-);
-
-if(!savedUser){
-
-alert(
-"Belum ada akun terdaftar"
-);
-
-return;
-
-}
-
-if(
-
-(username === savedUser.username ||
- username === savedUser.email)
-
-&&
-
-password === savedUser.password
-
-){
-
+<!-- 🔥 FIREBASE LOGIN (FIXED) -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
@@ -288,55 +148,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// ambil input
-const loginBtn = document.querySelector("button");
-loginBtn.addEventListener("click", async (e) => {
-  e.preventDefault();
+// LOGIN
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const email = document.querySelector("input[type='text']").value;
-  const password = document.querySelector("input[type='password']").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
 
-    alert("Login berhasil!");
-    window.location.href = "dashboard.html";
+        alert("Login berhasil!");
+        window.location.href = "dashboard.html";
 
-  } catch (error) {
-    alert("Login gagal: " + error.message);
-  }
+    } catch (error) {
+        alert("Login gagal: " + error.message);
+    }
 });
 </script>
 
-}else{
-
-alert(
-"Username atau Password salah"
-);
-
-}
-
-});
-
-</script>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDzn0336rRIiKHnt--XjkA_TmvesjnkKz4",
-  authDomain: "kayvara-market-f9615.firebaseapp.com",
-  projectId: "kayvara-market-f9615",
-  storageBucket: "kayvara-market-f9615.firebasestorage.app",
-  messagingSenderId: "983801971030",
-  appId: "1:983801971030:web:70fee1d37319fa492cd6f7"
-};
-
-const app = initializeApp(firebaseConfig);
-
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-</script>
 </body>
 </html>
