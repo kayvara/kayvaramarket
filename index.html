@@ -3,137 +3,295 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marketplace Indonesia</title>
-
-<link rel="stylesheet" href="css/style.css">
+<title>KAYVARA VEAT Marketplace</title>
 
 <style>
-.hero{
-    text-align:center;
-    padding:80px 20px;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
-.hero h1{
-    font-size:48px;
-    margin-bottom:10px;
+body{
+    background:#f8fafc;
 }
 
-.hero p{
-    font-size:18px;
-    color:#ccc;
+/* HEADER */
+
+header{
+    background:white;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.btn-group{
-    margin-top:30px;
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#2563eb;
 }
 
-.btn{
-    display:inline-block;
-    padding:12px 25px;
-    margin:5px;
-    border-radius:8px;
+.nav-buttons a{
     text-decoration:none;
+    margin-left:10px;
+}
+
+.login-btn{
+    padding:10px 20px;
+    border:2px solid #2563eb;
+    border-radius:10px;
+    color:#2563eb;
     font-weight:bold;
 }
 
-.btn-login{
-    background:#00c853;
+.register-btn{
+    padding:10px 20px;
+    background:#2563eb;
+    border-radius:10px;
     color:white;
+    font-weight:bold;
 }
 
-.btn-register{
-    background:#2196f3;
-    color:white;
-}
+/* HERO */
 
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+.hero{
+    min-height:80vh;
+    background:linear-gradient(
+    135deg,
+    #2563eb,
+    #1e40af
+    );
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
     padding:40px;
 }
 
-.feature-box{
-    background:#222;
-    padding:20px;
-    border-radius:10px;
-    text-align:center;
+.hero-content{
+    max-width:800px;
 }
 
-footer{
-    text-align:center;
-    padding:20px;
-    color:#888;
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
 }
+
+.hero p{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.hero-btn{
+    display:inline-block;
+    background:white;
+    color:#2563eb;
+    padding:15px 30px;
+    border-radius:15px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/* KATEGORI */
+
+.section-title{
+    text-align:center;
+    margin-top:60px;
+    margin-bottom:40px;
+    font-size:35px;
+    color:#0f172a;
+}
+
+.categories{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.category-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+}
+
+.category-icon{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+/* FITUR */
+
+.features{
+    width:90%;
+    margin:70px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.feature{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.feature h3{
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:60px;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
 </style>
 
 </head>
 <body>
 
-<header style="background:#000;padding:15px;">
-    <h2 style="text-align:center;">
-        🛒 Marketplace Indonesia
-    </h2>
+<header>
+
+<div class="logo">
+🛒 KAYVARA VEAT
+</div>
+
+<div class="nav-buttons">
+<a href="login.html" class="login-btn">Login</a>
+<a href="register.html" class="register-btn">Daftar</a>
+</div>
+
 </header>
 
 <section class="hero">
 
-    <h1>Belanja Mudah & Aman</h1>
+<div class="hero-content">
 
-    <p>
-        Parfum, Fashion, Pulsa, Token PLN,
-        Top Up Game dan Voucher Digital
-        dalam satu platform.
-    </p>
+<h1>Marketplace Modern Indonesia</h1>
 
-    <div class="btn-group">
-        <a href="login.html" class="btn btn-login">
-            LOGIN
-        </a>
+<p>
+Belanja Parfum, Fashion, Pulsa, Token PLN,
+Top Up Game, Voucher Digital dan banyak lagi
+dalam satu platform.
+</p>
 
-        <a href="register.html" class="btn btn-register">
-            DAFTAR AKUN
-        </a>
-    </div>
+<a href="register.html" class="hero-btn">
+Mulai Sekarang
+</a>
+
+</div>
 
 </section>
 
+<h2 class="section-title">
+🛍️ Kategori Populer
+</h2>
+
+<section class="categories">
+
+<div class="category-card">
+<div class="category-icon">🌸</div>
+<h3>Parfum</h3>
+<p>Produk parfum original.</p>
+</div>
+
+<div class="category-card">
+<div class="category-icon">👕</div>
+<h3>Fashion</h3>
+<p>Pakaian pria & wanita.</p>
+</div>
+
+<div class="category-card">
+<div class="category-icon">📱</div>
+<h3>Pulsa</h3>
+<p>Semua operator Indonesia.</p>
+</div>
+
+<div class="category-card">
+<div class="category-icon">⚡</div>
+<h3>Token PLN</h3>
+<p>Pembelian instan.</p>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🎮</div>
+<h3>Top Up Game</h3>
+<p>MLBB, FF, PUBG, Valorant.</p>
+</div>
+
+<div class="category-card">
+<div class="category-icon">💎</div>
+<h3>Voucher Digital</h3>
+<p>Voucher game & hiburan.</p>
+</div>
+
+</section>
+
+<h2 class="section-title">
+✨ Kenapa Memilih Kami?
+</h2>
+
 <section class="features">
 
-    <div class="feature-box">
-        <h3>🌸 Parfum</h3>
-        <p>Berbagai parfum original.</p>
-    </div>
+<div class="feature">
+<h3>🔒 Aman</h3>
+<p>Sistem login dan keamanan akun berlapis.</p>
+</div>
 
-    <div class="feature-box">
-        <h3>👕 Fashion</h3>
-        <p>Pakaian pria dan wanita.</p>
-    </div>
+<div class="feature">
+<h3>⚡ Cepat</h3>
+<p>Transaksi otomatis dalam hitungan detik.</p>
+</div>
 
-    <div class="feature-box">
-        <h3>📱 Pulsa</h3>
-        <p>Semua operator Indonesia.</p>
-    </div>
+<div class="feature">
+<h3>💰 Harga Terbaik</h3>
+<p>Promo dan diskon setiap hari.</p>
+</div>
 
-    <div class="feature-box">
-        <h3>⚡ Token PLN</h3>
-        <p>Token listrik instan.</p>
-    </div>
-
-    <div class="feature-box">
-        <h3>🎮 Top Up Game</h3>
-        <p>MLBB, FF, PUBG, Valorant.</p>
-    </div>
-
-    <div class="feature-box">
-        <h3>💎 Voucher Digital</h3>
-        <p>Berbagai voucher populer.</p>
-    </div>
+<div class="feature">
+<h3>📞 Support 24 Jam</h3>
+<p>Tim bantuan siap membantu kapan saja.</p>
+</div>
 
 </section>
 
 <footer>
-    © 2026 Marketplace Indonesia
+
+<h3>KAYVARA VEAT Marketplace</h3>
+
+<p>
+Marketplace Digital Modern untuk Indonesia
+</p>
+
+<br>
+
+<p>
+© 2026 KAYVARA VEAT. All Rights Reserved.
+</p>
+
 </footer>
 
 </body>
