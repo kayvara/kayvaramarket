@@ -2,40 +2,283 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Daftar Akun</title>
-<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daftar Akun Marketplace</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b,
+    #334155
+    );
+    padding:20px;
+}
+
+.register-box{
+    width:100%;
+    max-width:500px;
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.3);
+}
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:30px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    font-size:15px;
+}
+
+.input-group input:focus{
+    outline:none;
+    border-color:#2563eb;
+}
+
+.pin-container{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:8px;
+}
+
+.pin-container input{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.info{
+    font-size:13px;
+    color:#64748b;
+    margin-top:5px;
+}
+
+.checkbox-area{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.checkbox-area input{
+    margin-top:3px;
+}
+
+.checkbox-area label{
+    font-size:14px;
+    color:#334155;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
+    background:#94a3b8;
+    cursor:not-allowed;
+    transition:.3s;
+}
+
+button.active{
+    background:#2563eb;
+    cursor:pointer;
+}
+
+button.active:hover{
+    background:#1d4ed8;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.login-link a{
+    color:#2563eb;
+    text-decoration:none;
+}
+
+</style>
 </head>
 <body>
 
-<div class="card">
+<div class="register-box">
 
-<h2>Daftar Akun</h2>
+<div class="logo">
+🛒 KAYVARA VEAT
+</div>
 
-<input type="text" id="username" placeholder="Nama Pengguna">
+<p class="subtitle">
+Daftar akun marketplace Anda
+</p>
 
-<input type="email" id="email" placeholder="Email">
+<div class="input-group">
+<label>Nama Pengguna</label>
+<input type="text" id="username">
+</div>
 
-<input type="password" id="password" placeholder="Kata Sandi">
+<div class="input-group">
+<label>Email</label>
+<input type="email" id="email">
+</div>
 
-<input type="password" id="confirmPassword" placeholder="Konfirmasi Kata Sandi">
+<div class="input-group">
+<label>Kata Sandi</label>
+<input type="password" id="password">
+<div class="info">
+Minimal 8 karakter, huruf dan angka
+</div>
+</div>
 
-<input type="text" id="pin" maxlength="6" placeholder="PIN Keamanan 6 Digit">
+<div class="input-group">
+<label>Konfirmasi Kata Sandi</label>
+<input type="password" id="confirmPassword">
+</div>
 
-<label class="agree-box">
-    <input type="checkbox" id="agree">
-    Saya telah membaca, memahami, dan menyetujui
-    Syarat & Ketentuan serta Kebijakan Privasi.
+<div class="input-group">
+<label>PIN Keamanan Penarikan</label>
+
+<div class="pin-container">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+</div>
+
+<div class="info">
+Masukkan 6 digit PIN rahasia
+</div>
+</div>
+
+<div class="checkbox-area">
+
+<input type="checkbox" id="agree">
+
+<label for="agree">
+Saya telah membaca, memahami dan menyetujui
+Syarat & Ketentuan serta Kebijakan Privasi.
 </label>
-
-<button id="registerBtn" disabled>
-    DAFTAR SEKARANG
-</button>
-
-<a href="login.html">Sudah punya akun?</a>
 
 </div>
 
-<script src="js/register.js"></script>
+<button id="registerBtn" disabled>
+DAFTAR SEKARANG
+</button>
+
+<div class="login-link">
+Sudah punya akun?
+<a href="login.html">Masuk di sini</a>
+</div>
+
+</div>
+
+<script>
+
+const checkbox =
+document.getElementById("agree");
+
+const button =
+document.getElementById("registerBtn");
+
+checkbox.addEventListener("change",function(){
+
+    if(this.checked){
+        button.disabled = false;
+        button.classList.add("active");
+    }else{
+        button.disabled = true;
+        button.classList.remove("active");
+    }
+
+});
+
+button.addEventListener("click",()=>{
+
+    const username =
+    document.getElementById("username").value;
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const confirmPassword =
+    document.getElementById("confirmPassword").value;
+
+    if(username === ""){
+        alert("Nama pengguna wajib diisi");
+        return;
+    }
+
+    if(email === ""){
+        alert("Email wajib diisi");
+        return;
+    }
+
+    if(password.length < 8){
+        alert("Password minimal 8 karakter");
+        return;
+    }
+
+    if(password !== confirmPassword){
+        alert("Konfirmasi password tidak cocok");
+        return;
+    }
+
+    alert("Pendaftaran berhasil!");
+
+    window.location.href =
+    "login.html";
+
+});
+
+</script>
 
 </body>
 </html>
