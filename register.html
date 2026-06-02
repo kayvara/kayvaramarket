@@ -271,10 +271,25 @@ button.addEventListener("click",()=>{
         return;
     }
 
-    alert("Pendaftaran berhasil!");
+    const user = {
 
-    window.location.href =
-    "login.html";
+username: username,
+
+email: email,
+
+password: password
+
+};
+
+localStorage.setItem(
+"marketplaceUser",
+JSON.stringify(user)
+);
+
+alert("Pendaftaran berhasil!");
+
+window.location.href =
+"login.html";
 
 });
 
