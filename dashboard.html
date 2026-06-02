@@ -228,8 +228,11 @@ onAuthStateChanged(auth, (user) => {
   if (!user) {
     window.location.href = "login.html";
   } else {
-    document.getElementById("email").innerText = user.email;
-    document.getElementById("username").innerText = user.email.split("@")[0];
+import {
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
   }
 });
 
