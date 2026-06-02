@@ -16,62 +16,188 @@
 
 <input
 type="text"
-placeholder="Cari produk..."
 class="search-box"
+placeholder="Cari produk..."
 >
 
 <div class="header-buttons">
-<button class="wallet-btn">💰 Dompet</button>
+
+<button class="wallet-btn">
+💰 Dompet
+</button>
 
 <button onclick="logout()" class="logout-btn">
 Logout
 </button>
+
 </div>
 
 </header>
 
-<section class="profile">
-<h2>👤 Informasi Akun</h2>
-<p><b>Username:</b> <span id="username"></span></p>
-<p><b>Email:</b> <span id="email"></span></p>
-</section>
+<div class="dashboard">
 
-<section class="wallet">
+<div class="profile-card">
 
-<h2>💰 Saldo Dompet</h2>
+<div class="profile-left">
+
+<img
+src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+class="avatar"
+>
+
+<div>
+
+<h2 id="username"></h2>
+
+<p id="email"></p>
+
+<span class="verified">
+✔ Akun Terverifikasi
+</span>
+
+</div>
+
+</div>
+
+<div class="saldo-box">
+
+<p>Saldo Dompet</p>
 
 <h1>Rp 0</h1>
 
-<div style="margin-top:15px;">
+</div>
 
-<button style="padding:10px 15px;border:none;border-radius:10px;">
-Top Up
-</button>
+</div>
 
-<button style="padding:10px 15px;border:none;border-radius:10px;">
-Riwayat
-</button>
+<div class="menu-row">
 
+<div class="menu-item">
+📦
+<h4>Pesanan</h4>
+</div>
+
+<div class="menu-item">
+🛒
+<h4>Keranjang</h4>
+</div>
+
+<div class="menu-item">
+❤️
+<h4>Favorit</h4>
+</div>
+
+<div class="menu-item">
+🎁
+<h4>Voucher</h4>
+</div>
+
+</div>
+
+<h2 class="section-title">
+Kategori Belanja
+</h2>
+
+<section class="categories">
+
+<div class="category-card">
+🌸
+<h4>Parfum</h4>
+</div>
+
+<div class="category-card">
+👕
+<h4>Fashion</h4>
+</div>
+
+<div class="category-card">
+📱
+<h4>Pulsa</h4>
+</div>
+
+<div class="category-card">
+⚡
+<h4>Token PLN</h4>
+</div>
+
+<div class="category-card">
+🎮
+<h4>Top Up Game</h4>
+</div>
+
+<div class="category-card">
+🎁
+<h4>Voucher</h4>
+</div>
+
+<div class="category-card">
+💄
+<h4>Skincare</h4>
+</div>
+
+<div class="category-card">
+🏠
+<h4>Elektronik</h4>
 </div>
 
 </section>
 
-<section class="categories">
+<h2 class="section-title">
+Dompet & Pembayaran
+</h2>
 
-<div class="box"><img src="assets/parfum.jpg"><h3>Parfum</h3></div>
-<div class="box"><img src="assets/fashion.jpg"><h3>Fashion</h3></div>
-<div class="box"><img src="assets/pulsa.jpg"><h3>Pulsa</h3></div>
-<div class="box"><img src="assets/pln.jpg"><h3>Token PLN</h3></div>
-<div class="box"><img src="assets/game.jpg"><h3>Top Up Game</h3></div>
+<div class="menu-row">
+
+<div class="menu-item">
+💵
+<h4>Top Up</h4>
+</div>
+
+<div class="menu-item">
+💳
+<h4>Transfer</h4>
+</div>
+
+<div class="menu-item">
+📜
+<h4>Riwayat</h4>
+</div>
+
+<div class="menu-item">
+⚙️
+<h4>Pengaturan</h4>
+</div>
+
+</div>
+
+<section class="promo">
+
+<div class="promo-card">
+🌸 Promo Parfum
+</div>
+
+<div class="promo-card">
+👕 Fashion Terbaru
+</div>
+
+<div class="promo-card">
+🎮 Top Up Game
+</div>
 
 </section>
 
-<!-- 🛒 PRODUK DARI FIREBASE -->
 <section style="padding:20px;">
-<h2>🛍️ Produk Tersedia</h2>
-<div id="productList" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-top:15px;"></div>
+
+<h2 class="section-title">
+🛍️ Produk Tersedia
+</h2>
+
+<div id="productList"></div>
+
 </section>
 
+</div>
+
+<script src="js/dashboard.js"></script>
 <script src="js/dashboard.js"></script>
 
 <!-- 🔥 FIREBASE FULL SCRIPT -->
