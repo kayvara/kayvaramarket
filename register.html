@@ -347,35 +347,41 @@ registerBtn.addEventListener("click", async (e) => {
     return;
   }
 
-  try {
+ try {
+
     const userCredential =
-await createUserWithEmailAndPassword(
-auth,
-email,
-password
-);
+    await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+    );
 
-const user = userCredential.user;
+    const user = userCredential.user;
 
-const username =
-document.getElementById("username").value;
+    const username =
+    document.getElementById("username").value;
 
-const userId =
-"KV" + Date.now();
+    const userId =
+    "KV" + Date.now();
 
-await setDoc(
-doc(db,"users",user.uid),
-{
-username: username,
-email: email,
-userId: userId
-}
-);
+    await setDoc(
+        doc(db,"users",user.uid),
+        {
+            username: username,
+            email: email,
+            userId: userId
+        }
+    );
 
     alert("Akun berhasil dibuat!");
+
     window.location.href = "login.html";
 
-  } catch (error) {
+} catch (error) {
+
+    alert("Gagal daftar : " + error.message);
+
+}
     alert("Gagal daftar: " + error.message);
   }
 });
