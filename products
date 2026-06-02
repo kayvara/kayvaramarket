@@ -1,0 +1,11 @@
+{
+  "name": "Parfum Luxury",
+  "price": 150000,
+  "image": "assets/parfum.jpg",
+  "category": "parfum"
+}{
+  "name": "Kaos Oversize",
+  "price": 90000,
+  "image": "assets/fashion.jpg",
+  "category": "fashion"
+}
