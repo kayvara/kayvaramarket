@@ -294,6 +294,24 @@ window.location.href =
 });
 
 </script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDzn0336rRIiKHnt--XjkA_TmvesjnkKz4",
+  authDomain: "kayvara-market-f9615.firebaseapp.com",
+  projectId: "kayvara-market-f9615",
+  storageBucket: "kayvara-market-f9615.firebasestorage.app",
+  messagingSenderId: "983801971030",
+  appId: "1:983801971030:web:70fee1d37319fa492cd6f7"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+</script>
 </body>
 </html>
