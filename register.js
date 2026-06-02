@@ -1,10 +1,9 @@
 const agree = document.getElementById("agree");
 const registerBtn = document.getElementById("registerBtn");
 
-agree.addEventListener("change", function() {
-
-    if(this.checked){
-        registerBtn.disabled = false;
+agree.addEventListener("change", () => {
+    registerBtn.disabled = !agree.checked;
+});
         registerBtn.classList.add("active");
     }else{
         registerBtn.disabled = true;
