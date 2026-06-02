@@ -1,11 +1,25 @@
-const agree =
-document.getElementById("agree");
+const agree = document.getElementById("agree");
+const registerBtn = document.getElementById("registerBtn");
 
-const btn =
-document.getElementById("registerBtn");
+agree.addEventListener("change", function() {
 
-agree.addEventListener("change",()=>{
+    if(this.checked){
+        registerBtn.disabled = false;
+        registerBtn.classList.add("active");
+    }else{
+        registerBtn.disabled = true;
+        registerBtn.classList.remove("active");
+    }
 
-btn.disabled=!agree.checked;
+});
+
+registerBtn.addEventListener("click", function(){
+
+    if(!agree.checked){
+        alert("Silakan setujui syarat dan ketentuan.");
+        return;
+    }
+
+    alert("Pendaftaran berhasil!");
 
 });
