@@ -244,10 +244,48 @@ if(password === ""){
 Nanti bagian ini diganti Firebase Login
 */
 
-alert("Login berhasil!");
+const savedUser =
+JSON.parse(
+localStorage.getItem(
+"marketplaceUser"
+)
+);
+
+if(!savedUser){
+
+alert(
+"Belum ada akun terdaftar"
+);
+
+return;
+
+}
+
+if(
+
+(username === savedUser.username ||
+ username === savedUser.email)
+
+&&
+
+password === savedUser.password
+
+){
+
+alert(
+"Login berhasil"
+);
 
 window.location.href =
 "dashboard.html";
+
+}else{
+
+alert(
+"Username atau Password salah"
+);
+
+}
 
 });
 
