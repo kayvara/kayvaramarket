@@ -286,10 +286,7 @@ localStorage.setItem(
 JSON.stringify(user)
 );
 
-alert("Pendaftaran berhasil!");
 
-window.location.href =
-"login.html";
 
 });
 
@@ -312,6 +309,48 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+</script>
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDzn0336rRIiKHnt--XjkA_TmvesjnkKz4",
+  authDomain: "kayvara-market-f9615.firebaseapp.com",
+  projectId: "kayvara-market-f9615",
+  storageBucket: "kayvara-market-f9615.firebasestorage.app",
+  messagingSenderId: "983801971030",
+  appId: "1:983801971030:web:70fee1d37319fa492cd6f7"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// ambil input
+const registerBtn = document.querySelector("button");
+
+registerBtn.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  const email = document.querySelector("input[type='email']").value;
+  const password = document.querySelectorAll("input[type='password']")[0].value;
+  const confirmPassword = document.querySelectorAll("input[type='password']")[1].value;
+
+  if (password !== confirmPassword) {
+    alert("Password tidak sama!");
+    return;
+  }
+
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+
+    alert("Akun berhasil dibuat!");
+    window.location.href = "login.html";
+
+  } catch (error) {
+    alert("Gagal daftar: " + error.message);
+  }
+});
 </script>
 </body>
 </html>
